@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Page Title</title>
+    <style type="text/css">
+      html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+    </style>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcGFAyx9j723LT_JC8qHA9DVVZ7LQHw5k">
+    </script>
+    <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: { lat: 37.688889, lng: -97.336111},
+          zoom:5,
+        };
+        
+        var map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+        
+        var infowindow = new google.maps.InfoWindow({
+         });
+        
+                var image = 'images/tardisheader.png';
+
+        
+        var marker1 = new google.maps.Marker({
+                position: { lat: 39.4812, lng: -76.6438},
+                map: map,
+                icon: image,
+                title: 'ReGeneration Who'
+        });
+        
+        
+        var contentString1 = "<div><div style='float:left;'>" +
+                    "<span style='font-size:18px;font-weight:bold;'>ReGeneration Who</span><hr>" +
+                    "March 27-29 2015<br>" +
+                    "Hunt Valley Inn, Cockeysville, Maryland <br>" +
+                    "</div></div>";
+        var contentString2 = "<div><div style='float:left;'>" +
+                    "<span style='font-size:18px;font-weight:bold;'>26 Seasons of Gallifrey One</span><hr>" +
+                    "February 13-15 2015<br>" +
+                    "Marriott Los Angeles Airport, Los Angeles, California <br>" +
+                    "</div></div>";
+        var contentString3 = "<div><div style='float:left;'>" +
+                    "<span style='font-size:18px;font-weight:bold;'>Time Eddy</span><hr>" +
+                    "October 2-4 2015<br>" +
+                    "Best Western, North Wichita, Kansas <br>" +
+                    "</div></div>";
+        
+        var infowindow1 = new google.maps.InfoWindow({
+            content: contentString1
+         });   
+        
+        var infowindow2 = new google.maps.InfoWindow({
+            content: contentString2
+         });
+         var infowindow3 = new google.maps.InfoWindow({
+            content: contentString3
+         });
+        
+        
+        var marker2 = new google.maps.Marker({
+                position: { lat: 33.941589, lng: -118.408530},
+                map: map,
+                title: '26 Seasons of Gallifrey One',
+                icon: image,
+        
+        });
+         var marker3 = new google.maps.Marker({
+                position: { lat: 37.688889, lng: -97.336111},
+                map: map,
+                title: 'Time Eddy',
+                icon: image,
+        
+        });
+         google.maps.event.addListener(marker1, 'click', function() {
+            infowindow1.open(map,marker1);
+        });
+          google.maps.event.addListener(marker2, 'click', function() {
+            infowindow2.open(map,marker2);
+        });
+            google.maps.event.addListener(marker3, 'click', function() {
+            infowindow3.open(map,marker3);
+        });
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+  <body>
+        <div id="map-canvas"></div>
+  </body>
+</html>
